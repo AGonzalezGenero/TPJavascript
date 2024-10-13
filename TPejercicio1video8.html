@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista con Eventos</title>
+</head>
+<body>
+    <ul id="miLista">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ul>
+
+    <script>
+        // Seleccionar todos los elementos <li> dentro de la lista
+        var elementosLista = document.querySelectorAll('#miLista li');
+
+        // Agregar un evento click a cada elemento <li>
+        elementosLista.forEach(function(elemento) {
+            elemento.addEventListener('click', function() {
+                // Mostrar el texto del elemento en la consola
+                console.log(elemento.textContent);
+            });
+        });
+    </script>
+</body>
+</html>

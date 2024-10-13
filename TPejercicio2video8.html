@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deshabilitar y Habilitar Campo de Texto</title>
+    <style>
+        /* Estilo para el campo de texto deshabilitado */
+        input[type="text"]:disabled {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="miCampoTexto" placeholder="Escribe algo aquí">
+    <button onclick="deshabilitarCampo()">Deshabilitar</button>
+    <button onclick="habilitarCampo()">Habilitar</button>
+
+    <script>
+        function deshabilitarCampo() {
+            // Deshabilitar el campo de texto
+            document.getElementById('miCampoTexto').disabled = true;
+        }
+
+        function habilitarCampo() {
+            // Habilitar el campo de texto
+            document.getElementById('miCampoTexto').disabled = false;
+        }
+    </script>
+</body>
+</html>

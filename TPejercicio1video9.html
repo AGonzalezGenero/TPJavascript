@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardar Correo en localStorage</title>
+</head>
+<body>
+    <form id="miFormulario">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <div id="correoGuardado"></div>
+
+    <button id="eliminarCorreo" style="display:none;" onclick="eliminarCorreo()">Eliminar Correo</button>
+
+    <script>
+        // Función para guardar el correo en localStorage
+        function guardarCorreo(event) {
+            event.preventDefault();
+            var correo = document.getElementById('correo').value;
+            localStorage.setItem('correo', correo);
+            mostrarCorreoGuardado();
+        }
+
+        // Función para mostrar el correo guardado en el DOM
+        function mostrarCorreoGuardado() {
+            var correoGuardado = localStorage.getItem('correo');
+            var correoDiv = document.getElementById('correoGuardado');
+            var eliminarBtn = document.getElementById('eliminarCorreo');
+
+            if (correoGuardado) {
+                correoDiv.textContent = 'Correo guardado: ' + correoGuardado;
+                eliminarBtn.style.display = 'inline-block';
+            } else {
+                correoDiv.textContent = '';
+                eliminarBtn.style.display = 'none';
+            }
+        }
+
+        // Función para eliminar el correo de localStorage
+        function eliminarCorreo() {
+            localStorage.removeItem('correo');
+            mostrarCorreoGuardado();
+        }
+
+        // Agregar evento de envío al formulario
+        document.getElementById('miFormulario').addEventListener('submit', guardarCorreo);
+
+        // Mostrar el correo guardado al cargar la página
+        mostrarCorreoGuardado();
+    </script>
+</body>
+</html>
